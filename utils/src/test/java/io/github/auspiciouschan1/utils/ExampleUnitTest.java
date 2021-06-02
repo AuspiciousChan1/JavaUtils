@@ -1,4 +1,4 @@
-package com.auspicious.chan.utils;
+package io.github.auspiciouschan1.utils;
 
 import org.junit.Test;
 

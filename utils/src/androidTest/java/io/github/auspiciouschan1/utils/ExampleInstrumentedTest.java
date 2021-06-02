@@ -1,4 +1,4 @@
-package com.auspicious.chan.utils;
+package io.github.auspiciouschan1.utils;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.auspicious.chan.utils", appContext.getPackageName());
+        assertEquals("io.github.auspiciouschan1.utils.test", appContext.getPackageName());
     }
 }
