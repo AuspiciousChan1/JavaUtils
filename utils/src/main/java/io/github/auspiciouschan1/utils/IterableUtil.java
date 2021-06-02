@@ -8,6 +8,7 @@ import com.google.common.collect.Iterators;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -70,18 +71,24 @@ public class IterableUtil {
     @Nullable
     public static <T> T get(@Nullable final Iterable<T> iterable, final int position) {
         if (iterable == null || position < 0) {
-            LogUtil.i(TAG, String.format("get failed, iterable=%s, position=%s", iterable, position));
             return null;
         }
         T t = null;
         try {
             t = Iterators.get(iterable.iterator(), position);
-        } catch (Throwable e) {
-            LogUtil.i(TAG, "get error", e);
+        } catch (Throwable ignored) {
         }
         return t;
     }
 
+    /**
+     * 判断两个{@link Iterable<T>}中的元素是否按顺序满足{@link Object#equals(Object)}关系
+     * 注意：如果都为null，或者都为empty，则返回true；如果一个是null，另一个是empty，则返回false
+     *
+     * @param iterable1 第一个{@link Iterable<T>}
+     * @param iterable2 第二个{@link Iterable<T>}
+     * @return 全部满足：true；不全部满足：false
+     */
     public static <T> boolean equals(Iterable<T> iterable1, Iterable<T> iterable2) {
         if (iterable1 == null || iterable2 == null) {
             return iterable1 == iterable2;
