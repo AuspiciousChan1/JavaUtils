@@ -28,13 +28,22 @@ public class IterableUtil {
         return iterable;
     }
 
+    /**
+     * 创建一个随机{@link ArrayList<Integer>}
+     *
+     * @param sizeBound 最大长度
+     * @param upLimit 最大值（不含）
+     * @param downLimit 最小值
+     * @return
+     */
     @NonNull
     public static ArrayList<Integer> createRandomIntegerArrayList(final int sizeBound, final int upLimit, final int downLimit) {
         if (sizeBound <= 0 || upLimit <= downLimit) {
             return new ArrayList<>(0);
         }
+
         Random random = new Random();
-        int size = random.nextInt(sizeBound);
+        int size = random.nextInt(sizeBound + 1);
         final int valueBound = (int) Math.min(Integer.MAX_VALUE, (long) upLimit - downLimit);
         ArrayList<Integer> arrayList = new ArrayList<>(size);
         for (int i = 0; i < size; ++i) {
@@ -49,7 +58,7 @@ public class IterableUtil {
             return new ArrayList<>(0);
         }
         Random random = new Random();
-        int siz = random.nextInt(sizeBound);
+        int siz = random.nextInt(sizeBound + 1);
         double valueBound = upLimit - downLimit;
         ArrayList<Double> arrayList = new ArrayList<>(siz);
         for (int i = 0; i < siz; ++i) {
